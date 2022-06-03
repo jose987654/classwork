@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM ELEMENTS</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            color: #333
+        }
+
+        body {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 15px;
+
+        }
+
+        div,
+        article {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> ACCESSING ELEMENTS IN THE DOM </h1>
+    <h2>ID ( #demo)
+    </h2>
+    <div id="demo">
+        Access me by ID
+    </div>
+    <h2>
+        class(.demo)</h2>
+    <div class="demo"> Access me by Class (1)</div>
+    <div class="demo"> Access me by Class (2)</div>
+
+    <h2>
+        Tag (article)</h2>
+    <article> Access me by Tag (1)</article>
+    <article> Access me by Tag (2)</article>
+
+    <h2>
+        Query selector</h2>
+    <div id="demo-query"> Access me by Query</div>
+    <h2>
+        Query selector all</h2>
+    <div class="demo-query-all"> Access me by query selector all (1)</div>
+    <div class="demo-query-all"> Access me by query selector all (2)</div>
+    <script>
+        // assign all elements
+        const demoID = document.getElementById('demo');
+        const demoClass = document.getElementsByClassName('demo');
+        const demotag = document.getElementsByTagName('article');
+        const demoqueryID = document.querySelector('#demo-query');
+        const demoClassquery = document.querySelectorAll('.demo-query-all');
+
+        demoID.style.border = '4px solid purple';
+        demoqueryID.style.border = '10px solid purple'; //change border of class to orange
+
+        for (i = 0; i < demoClass.length; i++) {
+            demoClass[i].style.border = '4px solid orange';
+        }
+
+        // for (i = 0; i < demoClassquery.length; i++) {  //change border of class to orange
+        //     demoClassquery[i].style.border = '4px solid #900';
+        // }.
+        demoClassquery.forEach(query => {
+            query.style.border = '10px solid #900';
+        })
+
+        for (i = 0; i < demotag.length; i++) {  //change border of class to orange
+            demotag[i].style.border = '10px solid blue';
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
